@@ -14,7 +14,7 @@ demo中使用的主题来自:[http://kywk.github.io/](http://kywk.github.io/)
 
 #### step 1. 
 
-下载源码编译源码(如果是linux用户, 可以直接使用项目中的tt文件)
+下载源码编译源码(如果是linux用户, 可以直接使用项目中的`tt`文件)
 
 #### step 2. 
 
@@ -51,6 +51,7 @@ demo中使用的主题来自:[http://kywk.github.io/](http://kywk.github.io/)
 #### step 6.
 
 文章模板文件content.html的书写:
+
 1. 使用占位符`{{.title}}`表示文章的标题 
 2. 使用占位符`{{.date}}`表示文章的日期
 3. 使用占位符`{{.author}}`表示文章的作者
