@@ -13,29 +13,43 @@ demo中使用的主题来自:[http://kywk.github.io/](http://kywk.github.io/)
 ### 如何使用
 
 #### step 1. 
+
 下载源码编译源码(如果是linux用户, 可以直接使用项目中的tt文件)
 
 #### step 2. 
+
 创建文件, 在你的工作空间用命令行运行以下命令:
+
 `tt -type create -file 你的文件名称`
+
 例如: `tt -type create -file 我的第一篇博客`
 
 #### step 3. 
+
 写作, 打开`/raw/你的文件名称`文件, 进行文章的书写(注意: 文章的格式必须是markdown的)
 
 #### step 4. 
+
 写作完成后, 运行命令:
+
 编译markdown文件, `tt -type build -file 你的文件名称 [-author 作者] [-tmpl 要使用的模板文件]`
+
 例如: `tt -type build -file 我的第一篇博客 -author 亓斌 -tmpl ./content.html`
+
 (注意: []中的参数为可选参数, 具体content.html模板如何书写会在下面介绍)
+
 现在在/html目录下会生成对应文件名的html文件.
 
 #### step 5.
+
 生成目录, 运行命令:
+
 `tt -type cate`
+
 运行该命令, 在/html目录中会生成一个`category.auto.js`的javascript文件.
 
 #### step 6.
+
 文章模板文件content.html的书写:
 1. 使用占位符`{{.title}}`表示文章的标题 
 2. 使用占位符`{{.date}}`表示文章的日期
@@ -46,11 +60,12 @@ demo中使用的主题来自:[http://kywk.github.io/](http://kywk.github.io/)
 **注意: 关于占位符`{{.desc}}`的说明: 建议将这个描述放在`<meta name='descripton'></meta>`中,这样,在生成目录的时候才会产生摘要信息.**
 
 #### step 7.
+
 关于自动生成的`category.auto.js`文件的说明, 这个文件是关于文章索引信息的, 我们需要在目录页调用这个文件里的函数:
 
-1. pageCount() 函数会返回分页页码总数(默认分页大小为5)
-2. getQueryString(query) 函数可以获取指定的querystring参数, 通常我们用来获取当前页码
-3. get(currentPage) 函数会根据当前页码返回数据数组, 该数组中包含了索引页需要的信息
+1. `pageCount()` 函数会返回分页页码总数(默认分页大小为5)
+2. `getQueryString(query)` 函数可以获取指定的querystring参数, 通常我们用来获取当前页码
+3. `get(currentPage)` 函数会根据当前页码返回数据数组, 该数组中包含了索引页需要的信息
 
 索引信息数组中包含的信息如下:
 
@@ -92,4 +107,5 @@ window.onload = function() {
 ### 联系我
 
 我的博客: [http://blog.csdn.net/qibin0506](http://blog.csdn.net/qibin0506)
+
 我的邮箱: <a href="mailto:qibin0506@gmail.com">mailto:qibin0506@gmail.com</a>
