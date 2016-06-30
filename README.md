@@ -60,7 +60,7 @@ demo中使用的主题来自:[http://kywk.github.io/](http://kywk.github.io/)
 4. 使用占位符`{{.desc}}`表示文章的描述
 5. 使用占位符`{{.content}}`表示文章内容
 
-**注意: 关于占位符`{{.desc}}`的说明: 建议将这个描述放在`<meta name='descripton'></meta>`中,这样,在生成目录的时候才会产生摘要信息.**
+**注意: 关于占位符`{{.desc}}`的说明: 建议将这个描述放在`<meta name='description'></meta>`中,这样,在生成目录的时候才会产生摘要信息.**
 
 #### step 7.
 
