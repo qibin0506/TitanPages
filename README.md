@@ -30,9 +30,9 @@ demo中使用的主题来自:[http://kywk.github.io/](http://kywk.github.io/)
 
 #### step 4. 
 
-写作完成后, 运行命令:
+编译markdown文件,写作完成后, 运行命令:
 
-编译markdown文件, `tt -type build -file 你的文件名称 [-author 作者] [-tmpl 要使用的模板文件]`
+`tt -type build -file 你的文件名称 [-author 作者] [-tmpl 要使用的模板文件]`
 
 例如: `tt -type build -file 我的第一篇博客 -author 亓斌 -tmpl ./content.html`
 
