@@ -6,7 +6,7 @@ TitanPages是一个静态博客生成器, 可以配合githubpages轻松的搭建
 
 [https://github.com/russross/blackfriday](https://github.com/russross/blackfriday)
 
-[github.com/toqueteos/webbrowser](github.com/toqueteos/webbrowser)
+[https://github.com/toqueteos/webbrowser](https://github.com/toqueteos/webbrowser)
 
 demo中使用的主题来自:[http://kywk.github.io/](http://kywk.github.io/)
 
