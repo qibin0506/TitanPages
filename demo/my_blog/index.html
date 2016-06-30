@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title></title>
+  <meta name="description" content="Lorem ipsum dolor sit amet." />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" type="text/css" href="./css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
+  <meta name="generator" content="Casper theme live demo">
+</head>
+<body class="home-template">
+<header class="site-head"  style="background-image: url(https://blog.ghost.org/content/images/2013/Nov/cover.png)" >
+  <div class="vertical">
+    <div class="site-head-content inner">
+       <a class="blog-logo" href="#"><img src="https://blog.ghost.org/content/images/2013/Nov/bloglogo_1-1.png" alt="Blog Logo"/></a> 
+      <h1 class="blog-title">Loader's Blog</h1>
+      <h2 class="blog-description">this is Loader's Blog</h2>
+    </div>
+  </div>
+</header>
+
+<main class="content" role="main">
+<div id="content"></div>
+ <nav id="nav" class="pagination" role="pagination"></nav>
+</main>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script type="text/javascript" src="./js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="./js/index.js"></script>
+<script type="text/javascript" src="./js/category.auto.js"></script>
+<script type="text/javascript">
+	window.onload = function() {
+		var page = getQueryString("page")
+		var count = pageCount()
+		if (page == null) {
+			page = 1
+		}else {
+			page = parseInt(page)
+		}
+
+		if(page > 1) {
+			document.getElementById("nav").innerHTML += "<a class='newer-posts' href='?page="+(page - 1)+"'>← Newer Posts</a>"
+		}
+
+		document.getElementById("nav").innerHTML += "<span class='page-number'>Page "+page+" of "+count+"</span>"
+
+		if(page < count) {
+			document.getElementById("nav").innerHTML += "<a class='older-posts' href='?page="+(page + 1)+"'>← Older Posts</a>"
+		}
+		
+		if (page <= count) {
+			var result = get(page)
+			for (var i=0;i<result.length;i++) {
+				document.getElementById("content").innerHTML += "<article class='post'><header class='post-header'><span class='post-meta'><time datetime='"+result[i].date+"' itemprop='datePublished'>"+result[i].date+"</time><h2 class='post-title'><a href='./html/"+result[i].title+".html'>"+result[i].title+"</a></h2></header><section class='post-excerpt'><p>"+result[i].desc+"</p> <p><a href='./html/"+result[i].title+".html' class='excerpt-link'>Read More...</a></p></section></article>"
+			}
+		}
+	}
+	
+</script>
+</body>
+</html>
