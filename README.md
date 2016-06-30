@@ -109,4 +109,4 @@ window.onload = function() {
 
 我的博客: [http://blog.csdn.net/qibin0506](http://blog.csdn.net/qibin0506)
 
-我的邮箱: <a href="mailto:qibin0506@gmail.com">mailto:qibin0506@gmail.com</a>
+我的邮箱: <a href="mailto:qibin0506@gmail.com">qibin0506@gmail.com</a>
