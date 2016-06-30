@@ -10,6 +10,8 @@ TitanPages是一个静态博客生成器, 可以配合githubpages轻松的搭建
 
 demo中使用的主题来自:[http://kywk.github.io/](http://kywk.github.io/)
 
+#### 展示网站请转到: [https://qibin0506.github.io/](https://qibin0506.github.io/)
+
 ### 如何使用
 
 #### step 1. 
