@@ -16,7 +16,7 @@ demo中使用的主题来自:[http://kywk.github.io/](http://kywk.github.io/)
 
 #### step 1. 
 
-下载源码编译源码(如果是linux用户, 可以直接使用项目中的`tt`文件)
+下载源码编译源码(linux用户, 可以直接下载`tt`文件;windows用户可直接下载tt.zip解压使用)
 
 #### step 2. 
 
