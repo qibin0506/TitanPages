@@ -6,7 +6,7 @@ TitanPages是一个静态博客生成器, 可以配合githubpages轻松的搭建
 
 [https://github.com/russross/blackfriday](https://github.com/russross/blackfriday)
 
-[github.com/toqueteos/webbrowser](github.com/toqueteos/webbrowser)
+[https://github.com/toqueteos/webbrowser](https://github.com/toqueteos/webbrowser)
 
 demo中使用的主题来自:[http://kywk.github.io/](http://kywk.github.io/)
 
@@ -16,7 +16,7 @@ demo中使用的主题来自:[http://kywk.github.io/](http://kywk.github.io/)
 
 #### step 1. 
 
-下载源码编译源码(如果是linux用户, 可以直接使用项目中的`tt`文件)
+下载源码编译源码(linux用户, 可以直接下载`tt`文件;windows用户可直接下载tt.zip解压使用)
 
 #### step 2. 
 
@@ -54,11 +54,11 @@ demo中使用的主题来自:[http://kywk.github.io/](http://kywk.github.io/)
 
 文章模板文件content.html的书写:
 
-1. 使用占位符`{{.title}}`表示文章的标题 
-2. 使用占位符`{{.date}}`表示文章的日期
-3. 使用占位符`{{.author}}`表示文章的作者
-4. 使用占位符`{{.desc}}`表示文章的描述
-5. 使用占位符`{{.content}}`表示文章内容
+1. 使用占位符`{{.Title}}`表示文章的标题 
+2. 使用占位符`{{.Date}}`表示文章的日期
+3. 使用占位符`{{.Author}}`表示文章的作者
+4. 使用占位符`{{.Desc}}`表示文章的描述
+5. 使用占位符`{{.Content}}`表示文章内容
 
 **注意: 关于占位符`{{.desc}}`的说明: 建议将这个描述放在`<meta name='description'></meta>`中,这样,在生成目录的时候才会产生摘要信息.**
 
