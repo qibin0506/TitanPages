@@ -246,7 +246,7 @@ func parseContentDesc(content []byte) (desc string) {
 
 	if desc != "" {
 		html := blackfriday.MarkdownCommon([]byte(desc))
-		re, err := regexp.Compile("(?iU)<.*>")
+		re, err := regexp.Compile(`(?iU)<.*>|\s`)
 		checkError(err)
 		desc = re.ReplaceAllString(string(html), "")
 	}
