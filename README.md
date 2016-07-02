@@ -12,6 +12,11 @@ demo中使用的主题来自:[http://kywk.github.io/](http://kywk.github.io/)
 
 #### 展示网站请转到: [https://qibin0506.github.io/](https://qibin0506.github.io/)
 
+### 更新日志
+#### 2016/7/2更新
+1. 修复生成摘要时保持markdown格式bug
+2. 加入-help参数, 可以在命令行查看使用文档,使用方法: `tt -help keyword` e.g. `tt -help build`查看build的使用方法
+
 ### 如何使用
 
 #### step 1. 
