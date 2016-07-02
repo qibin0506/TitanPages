@@ -27,8 +27,8 @@ const (
 	defaultContent = `### hello markdown`
 
 	categoryJs = `
-var defaultPageSize = 5
-var arr = eval('{{.}}')
+var defaultPageSize = 5;
+var arr = eval('{{.}}');
 function get(currentPage) {
 	return getResult(currentPage, defaultPageSize);
 }
@@ -58,10 +58,11 @@ function getQueryString(query) {
 // md -type create -file my
 // md -type view -file my
 // md -type build -file my (-tmpl template.html -author loader -datefmt 2016-06-28)
-var tp *string = flag.String("type", create, "")
-var fileName *string = flag.String("file", "default", "")
-var tmpl *string = flag.String("tmpl", "", "")
-var author *string = flag.String("author", "", "")
+var tp *string = flag.String("type", create, "use create build or view")
+var fileName *string = flag.String("file", "default", "the filename to create or build or view")
+var tmpl *string = flag.String("tmpl", "", "the html template file you want to use")
+var author *string = flag.String("author", "", "the author of this article")
+var hlp *string = flag.String("help", "", "")
 
 var mdDir string = "./raw/"
 var htmlDir string = "./html/"
@@ -72,6 +73,11 @@ func init() {
 }
 
 func main() {
+	if flag.Lookup("help") != nil {
+		help(*hlp)
+		return
+	}
+
 	checkType(*tp)
 	checkDir()
 
@@ -84,6 +90,32 @@ func main() {
 		buildContent(*fileName)
 	case cate:
 		buildCategory()
+	}
+}
+
+func help(arg string) {
+	fmt.Print("Usage:\n")
+	switch arg {
+	case "type":
+		fmt.Println(" the type you want to use, you can use 'create', 'build' or 'view' here")
+	case "file":
+		fmt.Println(" the file name you want to operate")
+	case "author":
+		fmt.Println(" the author of this article")
+	case "tmpl":
+		fmt.Println(" the html template file you want to use when build markdown file")
+	case "create":
+		fmt.Println(" create a new markdown file \n e.g. tt -type create -file fileName")
+	case "build":
+		fmt.Println(" convert a html file from a markdown file \n e.g. tt -type build -file fileName -author qibin -tmpl ./content.html")
+	case "view":
+		fmt.Println(" view the html file you builded \n e.g. tt -type view -file fileName")
+	case "detail":
+		fallthrough
+	default:
+		fmt.Println(" 1. use 'tt -type create -file fileName' to create a new file")
+		fmt.Println(" 2. use 'tt -type build -file fileName' to convert a markdown file to html")
+		fmt.Println(" 3. use 'tt -type view -file fileName' to view a html file in browser")
 	}
 }
 
@@ -211,6 +243,14 @@ func parseContentDesc(content []byte) (desc string) {
 		desc = line
 		break
 	}
+
+	if desc != "" {
+		html := blackfriday.MarkdownCommon([]byte(desc))
+		re, err := regexp.Compile("(?iU)<.*>")
+		checkError(err)
+		desc = re.ReplaceAllString(string(html), "")
+	}
+
 	return
 }
 
