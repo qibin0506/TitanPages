@@ -73,7 +73,7 @@ func init() {
 }
 
 func main() {
-	if flag.Lookup("help") != nil {
+	if *hlp != "" {
 		help(*hlp)
 		return
 	}
