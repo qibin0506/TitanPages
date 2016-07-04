@@ -1,4 +1,4 @@
-### TitanPages, A fast, simple static blog builder, powered by golang.
+﻿### TitanPages, A fast, simple static blog builder, powered by golang.
 
 TitanPages是一个静态博客生成器, 可以配合githubpages轻松的搭建自己的博客.
 
@@ -21,7 +21,7 @@ demo中使用的主题来自:[http://kywk.github.io/](http://kywk.github.io/)
 
 #### step 1. 
 
-下载源码编译源码(linux用户, 可以直接下载`tt`文件;windows用户可直接下载tt.zip解压使用)
+下载源码编译源码(linux用户, 可以直接下载`tt`文件;windows用户可直接下载tt.exe)
 
 #### step 2. 
 
