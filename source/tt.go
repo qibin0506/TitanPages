@@ -13,6 +13,7 @@ import (
 	"net/http"
 	"os"
 	"regexp"
+	"sort"
 	"strings"
 	"text/template"
 	"time"
@@ -127,18 +128,23 @@ func buildCategory() {
 	dirs, err := ioutil.ReadDir(htmlDir)
 	checkError(err)
 
-	var cates []*Category
+	var cates CategorySlice
 	for _, item := range dirs {
 		title := item.Name()
 		if strings.HasSuffix(title, ".html") {
-			title = strings.TrimRight(title, ".html")
+			title = strings.TrimSuffix(title, ".html")
 		} else if strings.HasSuffix(title, ".htm") {
-			title = strings.TrimRight(title, ".htm")
+			title = strings.TrimSuffix(title, ".htm")
 		}
 
-		cate := &Category{Title: title, Date: item.ModTime().Format(dateFmt), Desc: getContentDesc(item)}
+		cate := &Category{
+			Title: title,
+			date:  item.ModTime(),
+			Date:  item.ModTime().Format(dateFmt),
+			Desc:  getContentDesc(item)}
 		cates = append(cates, cate)
 	}
+	sort.Sort(cates)
 
 	jsonData, err := json.Marshal(cates)
 	checkError(err)
@@ -166,7 +172,12 @@ func buildContent(name string) {
 	checkError(err)
 
 	html := blackfriday.MarkdownCommon(fd)
-	art := &Article{Title: name, Date: time.Now().Format(dateFmt), Author: *author, Content: string(html), Desc: parseContentDesc(fd)}
+	art := &Article{
+		Title:   name,
+		Date:    time.Now().Format(dateFmt),
+		Author:  *author,
+		Content: string(html),
+		Desc:    parseContentDesc(fd)}
 	convertHtml(name, html, art)
 }
 
@@ -340,6 +351,20 @@ func checkError(err error) {
 	}
 }
 
+type CategorySlice []*Category
+
+func (this CategorySlice) Len() int {
+	return len(this)
+}
+
+func (this CategorySlice) Swap(i, j int) {
+	this[i], this[j] = this[j], this[i]
+}
+
+func (this CategorySlice) Less(i, j int) bool {
+	return this[i].date.After(this[j].date)
+}
+
 // 文章
 type Article struct {
 	Title   string
@@ -354,4 +379,5 @@ type Category struct {
 	Title string `json:"title"`
 	Date  string `json:"date"`
 	Desc  string `json:"desc"`
+	date  time.Time
 }
